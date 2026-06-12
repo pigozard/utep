@@ -4,123 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mon bilan éducatif — UTEP</title>
-<style>
-  :root{
-    --lavande:#cfd0f5;
-    --lavande-clair:#e6e7fb;
-    --violet:#5b3a8c;
-    --violet-vif:#7b46c9;
-    --encre:#1d1b2e;
-    --gris:#6a6880;
-    --carte:#ffffff;
-    --bord:#d8d9ef;
-    --bleu:#2f5fd0;
-    --rayon:18px;
-  }
-  *{box-sizing:border-box}
-  body{
-    margin:0;
-    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-    background:var(--lavande-clair);
-    color:var(--encre);
-    line-height:1.45;
-  }
-  .barre{
-    position:sticky;top:0;z-index:50;
-    background:#fff;border-bottom:1px solid var(--bord);
-    padding:12px 20px;display:flex;gap:10px;align-items:center;flex-wrap:wrap;
-  }
-  .barre h1{font-size:15px;margin:0;font-weight:700;color:var(--violet);flex:1;min-width:160px}
-  .bouton{
-    border:0;border-radius:999px;padding:10px 18px;font-size:14px;font-weight:600;
-    cursor:pointer;font-family:inherit;transition:transform .08s,filter .15s;
-  }
-  .bouton:active{transform:translateY(1px)}
-  .b-pdf{background:var(--violet-vif);color:#fff}
-  .b-json{background:#fff;color:var(--violet);border:1.5px solid var(--violet)}
-  .b-import{background:#fff;color:var(--gris);border:1.5px solid var(--bord)}
-  .bouton:hover{filter:brightness(1.05)}
-  .avis{
-    max-width:860px;margin:14px auto 0;padding:10px 16px;border-radius:12px;
-    background:#fff6e0;border:1px solid #f0d27a;color:#7a5a00;font-size:13px;
-  }
-  .feuille{
-    max-width:860px;margin:18px auto;background:var(--lavande);
-    border-radius:24px;padding:26px;
-  }
-  .titre{
-    text-align:center;font-size:30px;font-weight:800;color:var(--encre);
-    letter-spacing:.5px;margin:4px 0 22px;
-  }
-  .frise-tete{display:flex;align-items:center;gap:18px;margin-bottom:14px}
-  .frise-tag{
-    background:#fff;color:var(--violet);font-weight:800;font-size:22px;
-    padding:10px 18px;border-radius:6px;white-space:nowrap;
-  }
-  .frise-cons{font-size:14px;color:#33324a}
-  .carte{
-    background:var(--carte);border-radius:var(--rayon);padding:18px 20px;
-    margin-bottom:16px;position:relative;
-  }
-  .carte.centre{text-align:center}
-  .carte h2{
-    margin:0 0 4px;font-size:16px;font-weight:800;letter-spacing:.4px;
-  }
-  .carte .indice{margin:0 0 10px;font-size:13px;color:var(--gris)}
-  .ico{position:absolute;top:16px;right:18px;font-size:26px;opacity:.85}
-  textarea{
-    width:100%;border:1px solid var(--bord);border-radius:10px;
-    padding:10px 12px;font-family:inherit;font-size:14px;resize:vertical;
-    background:#fbfbff;color:var(--encre);
-  }
-  textarea:focus{outline:2px solid var(--violet-vif);border-color:transparent}
-  .frise textarea{min-height:64px}
-  .grand textarea{min-height:120px}
-  .moyen textarea{min-height:90px}
-  .duo{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-  .etiquette label{display:block;font-size:13px;color:var(--gris);margin-bottom:4px}
-  .etiquette input[type=text]{
-    width:100%;border:1px solid var(--bord);border-radius:8px;padding:9px 11px;
-    font-family:inherit;font-size:14px;background:#fbfbff;
-  }
-  .etp{display:flex;flex-direction:column;justify-content:center;align-items:center;gap:14px}
-  .etp p{margin:0;text-align:center;font-size:15px}
-  .choix{display:flex;gap:14px}
-  .pastille{
-    border:2px solid var(--bleu);background:#fff;color:var(--bleu);
-    border-radius:999px;padding:10px 30px;font-weight:700;font-size:15px;cursor:pointer;
-    transition:all .12s;
-  }
-  .pastille.on{background:var(--bleu);color:#fff}
-  @media(max-width:640px){
-    .duo{grid-template-columns:1fr}
-    .titre{font-size:23px}
-    .frise-tag{font-size:18px}
-  }
-  /* En mode export PDF on neutralise les ombres et on fige les couleurs */
-  .pdf-mode textarea{border-color:#ccc}
-
-  /* ---- IMPRESSION / EXPORT PDF (via la fonction d'impression du navigateur) ---- */
-  @media print{
-    @page{ size:A4 portrait; margin:12mm 10mm; }
-    /* on masque tout sauf la feuille */
-    .barre, .avis{ display:none !important; }
-    body{ background:#fff !important; }
-    .feuille{
-      max-width:100% !important; width:100% !important;
-      margin:0 !important; padding:0 !important; background:#fff !important;
-    }
-    .carte{ box-shadow:none !important; border:1px solid #d8d9ef; break-inside:avoid; }
-    .duo{ break-inside:avoid; }
-    /* les zones de saisie : bordure légère + contenu visible en entier */
-    textarea, .impression-bloc{
-      border:1px solid #ccc !important; background:#fbfbff !important;
-      color:#1d1b2e !important; -webkit-print-color-adjust:exact; print-color-adjust:exact;
-    }
-    /* forcer le rendu des couleurs de fond (cartes, pastilles) */
-    *{ -webkit-print-color-adjust:exact !important; print-color-adjust:exact !important; }
-  }
-</style>
+<link rel="stylesheet" href="bep.css">
 </head>
 <body>
 
@@ -130,7 +14,7 @@
   <button class="bouton b-import" onclick="document.getElementById('fichier').click()">Reprendre un fichier</button>
   <input type="file" id="fichier" accept="application/json" style="display:none" onchange="importer(event)">
   <button class="bouton b-json" onclick="exportJSON()">Enregistrer (.json)</button>
-  <button class="bouton b-pdf" onclick="exportPDF()">Télécharger le PDF</button>
+  <button class="bouton b-pdf"  onclick="exportPDF()">Télécharger le PDF</button>
 </div>
 
 <div class="avis">
@@ -222,80 +106,6 @@
   </div>
 </div>
 
-<script>
-let etpChoix = "";
-
-function choisirETP(v){
-  etpChoix = (etpChoix === v) ? "" : v;
-  document.querySelectorAll('[data-etp]').forEach(b=>{
-    b.classList.toggle('on', b.dataset.etp === etpChoix);
-  });
-}
-
-function collecter(){
-  const d = {};
-  document.querySelectorAll('[data-cle]').forEach(el=> d[el.dataset.cle] = el.value);
-  d.participationETP = etpChoix;
-  d._meta = {document:"Mon bilan éducatif", genere:new Date().toISOString()};
-  return d;
-}
-
-function exportJSON(){
-  const data = collecter();
-  const nom = (data.patient || "bilan").replace(/[^a-z0-9]/gi,'_').slice(0,30);
-  const blob = new Blob([JSON.stringify(data,null,2)], {type:'application/json'});
-  const a = document.createElement('a');
-  a.href = URL.createObjectURL(blob);
-  a.download = `bilan_educatif_${nom}.json`;
-  a.click();
-  URL.revokeObjectURL(a.href);
-}
-
-function importer(e){
-  const f = e.target.files[0];
-  if(!f) return;
-  const r = new FileReader();
-  r.onload = () => {
-    try{
-      const d = JSON.parse(r.result);
-      document.querySelectorAll('[data-cle]').forEach(el=>{
-        if(d[el.dataset.cle] !== undefined) el.value = d[el.dataset.cle];
-      });
-      if(d.participationETP){ etpChoix=""; choisirETP(d.participationETP); }
-    }catch(err){ alert("Fichier illisible. Choisissez un .json enregistré depuis ce formulaire."); }
-  };
-  r.readAsText(f);
-}
-
-function exportPDF(){
-  const feuille = document.getElementById('feuille');
-
-  // Convertir les textarea en blocs de texte le temps de l'impression :
-  // un textarea n'imprime souvent que la portion visible, un div imprime tout.
-  const remplaces = [];
-  feuille.querySelectorAll('textarea').forEach(ta=>{
-    const div = document.createElement('div');
-    div.className = 'impression-bloc';
-    div.textContent = ta.value || '\u00A0';
-    div.style.cssText =
-      'white-space:pre-wrap;word-break:break-word;min-height:48px;'+
-      'border-radius:10px;padding:10px 12px;font-size:14px;'+
-      'font-family:inherit;line-height:1.5';
-    ta.style.display = 'none';
-    ta.parentNode.insertBefore(div, ta);
-    remplaces.push({ta, div});
-  });
-
-  const restaurer = ()=>{
-    remplaces.forEach(({ta,div})=>{ ta.style.display=''; div.remove(); });
-    window.removeEventListener('afterprint', restaurer);
-  };
-  window.addEventListener('afterprint', restaurer);
-
-  window.print();
-  // filet de sécurité si afterprint ne se déclenche pas
-  setTimeout(()=>{ if(remplaces[0] && remplaces[0].div.isConnected) restaurer(); }, 1500);
-}
-</script>
+<script src="bep.js"></script>
 </body>
 </html>

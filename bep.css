@@ -1,0 +1,238 @@
+/* ============================================================
+   UTEP — CH Charles Perrens
+   Bilan Éducatif Partagé (bep.html)
+   ============================================================ */
+
+:root {
+  --lavande:       #cfd0f5;
+  --lavande-clair: #e6e7fb;
+  --violet:        #5b3a8c;
+  --violet-vif:    #7b46c9;
+  --encre:         #1d1b2e;
+  --gris:          #6a6880;
+  --carte:         #ffffff;
+  --bord:          #d8d9ef;
+  --bleu:          #2f5fd0;
+  --rayon:         18px;
+}
+
+/* ── Reset ── */
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background: var(--lavande-clair);
+  color: var(--encre);
+  line-height: 1.45;
+}
+
+/* ── Barre d'actions (sticky) ── */
+.barre {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: #fff;
+  border-bottom: 1px solid var(--bord);
+  padding: 12px 20px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.barre h1 {
+  font-size: 15px;
+  margin: 0;
+  font-weight: 700;
+  color: var(--violet);
+  flex: 1;
+  min-width: 160px;
+}
+
+/* ── Boutons ── */
+.bouton {
+  border: 0;
+  border-radius: 999px;
+  padding: 10px 18px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: inherit;
+  transition: transform .08s, filter .15s;
+}
+.bouton:active { transform: translateY(1px); }
+.bouton:hover  { filter: brightness(1.05); }
+
+.b-pdf    { background: var(--violet-vif); color: #fff; }
+.b-json   { background: #fff; color: var(--violet); border: 1.5px solid var(--violet); }
+.b-import { background: #fff; color: var(--gris);   border: 1.5px solid var(--bord); }
+
+/* ── Avis confidentialité ── */
+.avis {
+  max-width: 860px;
+  margin: 14px auto 0;
+  padding: 10px 16px;
+  border-radius: 12px;
+  background: #fff6e0;
+  border: 1px solid #f0d27a;
+  color: #7a5a00;
+  font-size: 13px;
+}
+
+/* ── Feuille principale ── */
+.feuille {
+  max-width: 860px;
+  margin: 18px auto;
+  background: var(--lavande);
+  border-radius: 24px;
+  padding: 26px;
+}
+
+.titre {
+  text-align: center;
+  font-size: 30px;
+  font-weight: 800;
+  color: var(--encre);
+  letter-spacing: .5px;
+  margin: 4px 0 22px;
+}
+
+/* ── Frise chronologique ── */
+.frise-tete {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-bottom: 14px;
+}
+.frise-tag {
+  background: #fff;
+  color: var(--violet);
+  font-weight: 800;
+  font-size: 22px;
+  padding: 10px 18px;
+  border-radius: 6px;
+  white-space: nowrap;
+}
+.frise-cons { font-size: 14px; color: #33324a; }
+
+/* ── Carte ── */
+.carte {
+  background: var(--carte);
+  border-radius: var(--rayon);
+  padding: 18px 20px;
+  margin-bottom: 16px;
+  position: relative;
+}
+.carte.centre { text-align: center; }
+.carte h2 {
+  margin: 0 0 4px;
+  font-size: 16px;
+  font-weight: 800;
+  letter-spacing: .4px;
+}
+.carte .indice { margin: 0 0 10px; font-size: 13px; color: var(--gris); }
+.ico { position: absolute; top: 16px; right: 18px; font-size: 26px; opacity: .85; }
+
+/* ── Champs de saisie ── */
+textarea {
+  width: 100%;
+  border: 1px solid var(--bord);
+  border-radius: 10px;
+  padding: 10px 12px;
+  font-family: inherit;
+  font-size: 14px;
+  resize: vertical;
+  background: #fbfbff;
+  color: var(--encre);
+}
+textarea:focus { outline: 2px solid var(--violet-vif); border-color: transparent; }
+
+.frise textarea { min-height: 64px; }
+.grand  textarea { min-height: 120px; }
+.moyen  textarea { min-height: 90px; }
+
+/* ── Grilles ── */
+.duo {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+/* ── Étiquette ── */
+.etiquette label { display: block; font-size: 13px; color: var(--gris); margin-bottom: 4px; }
+.etiquette input[type=text] {
+  width: 100%;
+  border: 1px solid var(--bord);
+  border-radius: 8px;
+  padding: 9px 11px;
+  font-family: inherit;
+  font-size: 14px;
+  background: #fbfbff;
+}
+
+/* ── Bloc ETP ── */
+.etp {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 14px;
+}
+.etp p { margin: 0; text-align: center; font-size: 15px; }
+
+.choix { display: flex; gap: 14px; }
+.pastille {
+  border: 2px solid var(--bleu);
+  background: #fff;
+  color: var(--bleu);
+  border-radius: 999px;
+  padding: 10px 30px;
+  font-weight: 700;
+  font-size: 15px;
+  cursor: pointer;
+  transition: all .12s;
+}
+.pastille.on { background: var(--bleu); color: #fff; }
+
+/* ── Mode PDF ── */
+.pdf-mode textarea { border-color: #ccc; }
+
+/* ── Impression / export PDF ── */
+@media print {
+  @page { size: A4 portrait; margin: 12mm 10mm; }
+
+  .barre,
+  .avis       { display: none !important; }
+  body        { background: #fff !important; }
+
+  .feuille {
+    max-width: 100% !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: #fff !important;
+  }
+  .carte  { box-shadow: none !important; border: 1px solid #d8d9ef; break-inside: avoid; }
+  .duo    { break-inside: avoid; }
+
+  textarea,
+  .impression-bloc {
+    border: 1px solid #ccc !important;
+    background: #fbfbff !important;
+    color: #1d1b2e !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+}
+
+/* ── Responsive ── */
+@media (max-width: 640px) {
+  .duo      { grid-template-columns: 1fr; }
+  .titre    { font-size: 23px; }
+  .frise-tag { font-size: 18px; }
+}
