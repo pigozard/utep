@@ -5,6 +5,13 @@
 
 let etpChoix = "";
 
+function reinitialiser() {
+  if (!confirm("Effacer toutes les réponses et recommencer ?")) return;
+  document.querySelectorAll("[data-cle]").forEach(el => { el.value = ""; });
+  etpChoix = "";
+  document.querySelectorAll("[data-etp]").forEach(b => b.classList.remove("on"));
+}
+
 function choisirETP(v) {
   etpChoix = (etpChoix === v) ? "" : v;
   document.querySelectorAll("[data-etp]").forEach(b => {

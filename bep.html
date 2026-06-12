@@ -10,10 +10,9 @@
 
 <div class="barre">
   <a href="index.html" style="text-decoration:none;color:var(--gris);font-size:14px;font-weight:600">← Accueil</a>
-  <h1>Mon bilan éducatif</h1>
-  <button class="bouton b-import" onclick="document.getElementById('fichier').click()">Reprendre un fichier</button>
-  <input type="file" id="fichier" accept="application/json" style="display:none" onchange="importer(event)">
 
+  <input type="file" id="fichier" accept="application/json" style="display:none" onchange="importer(event)">
+  <button class="bouton b-reset" onclick="reinitialiser()">↺ Effacer</button>
   <button class="bouton b-pdf"  onclick="exportPDF()">Télécharger le PDF</button>
 </div>
 

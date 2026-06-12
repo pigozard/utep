@@ -66,6 +66,7 @@ body {
 .b-pdf    { background: var(--violet-vif); color: #fff; }
 .b-json   { background: #fff; color: var(--violet); border: 1.5px solid var(--violet); }
 .b-import { background: #fff; color: var(--gris);   border: 1.5px solid var(--bord); }
+.b-reset  { background: #fff; color: var(--gris);   border: 1.5px solid var(--bord); margin-left: auto; }
 
 /* ── Avis confidentialité ── */
 .avis {
