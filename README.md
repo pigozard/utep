@@ -1,63 +1,50 @@
-# UTEP — Outils numériques internes
+# UTEP — Outils et ressources
 
-Outils web pour l'**Unité Transversale d'Éducation du Patient** du Centre Hospitalier Charles Perrens (Bordeaux).
+Outils web internes de l'**Unité Transversale d'Éducation du Patient**  
+Centre Hospitalier Charles Perrens — Bordeaux
 
-## Structure du projet
+---
+
+## Structure
 
 ```
 utep/
-├── index.html   # Page d'accueil UTEP
-├── style.css    # Styles de index.html
-├── bep.html     # Bilan Éducatif Partagé (formulaire)
-├── bep.css      # Styles de bep.html
-└── bep.js       # Logique du BEP (export JSON/PDF, import)
+├── index.html        # Page d'accueil — grille des outils
+├── style.css         # Styles de index.html
+├── bep.html          # Bilan Éducatif Partagé
+├── bep.css           # Styles de bep.html
+└── bep.js            # Logique du BEP
 ```
 
-## Pages
+## Outils
 
-### `index.html` — Page d'accueil
+| Outil | Fichier | État |
+|---|---|---|
+| Bilan éducatif partagé | `bep.html` | ✅ Disponible |
+| Roue des émotions | `roue-des-emotions.html` | 🔜 À venir |
+| Cartes BDL | `cartes-bdl.html` | 🔜 À venir |
+| Mes facteurs déclencheurs | `facteurs-declencheurs.html` | 🔜 À venir |
+| Comprendre l'ECT | `comprendre-ect.html` | 🔜 À venir |
+| Questionnaire de satisfaction | `questionnaire-satisfaction.html` | 🔜 À venir |
+| Formulaire de recueil | `formulaire-recueil.html` | 🔜 À venir |
 
-Présentation de l'UTEP avec :
-- Chiffres clés (programmes, patients, professionnels)
-- Grille des 8 programmes d'ETP autorisés
-- Schéma du parcours patient en 4 étapes
-- Coordonnées de contact
-- Accès aux outils numériques
+## Bilan Éducatif Partagé (`bep.html`)
 
-**Palette :** teal `#3e8e9b` · navy `#1c3f73` · orange `#e07d1c`
+Formulaire de diagnostic éducatif rempli en séance (présentiel ou visio).
 
-### `bep.html` — Bilan Éducatif Partagé
+**Sections :** Mon histoire · Moi · Mes ressources · Mon quotidien · Suivi et soin · Répercussions de la maladie · Mes priorités · Mes objectifs · Participation ETP
 
-Formulaire de diagnostic éducatif à remplir en séance (présentiel ou visio).
-
-Fonctionnalités :
-- Saisie libre dans chaque section thématique
-- **Enregistrer (.json)** — sauvegarde locale du remplissage
-- **Reprendre un fichier** — rechargement d'un .json existant
+**Actions disponibles dans la barre :**
+- **↺ Effacer** — remet le formulaire à zéro (avec confirmation)
 - **Télécharger le PDF** — impression navigateur optimisée A4
 
-**Aucune donnée n'est envoyée sur Internet.** Tout reste dans le navigateur ; le fichier .json s'enregistre localement.
+> Aucune donnée n'est envoyée sur Internet. Tout reste dans le navigateur.
 
-**Palette :** violet `#5b3a8c` · lavande `#cfd0f5`
+## Ajouter un nouvel outil
+
+1. Créer le fichier HTML (ex. `roue-des-emotions.html`)
+2. Retirer la classe `disabled` de la carte correspondante dans `index.html`
 
 ## Utilisation
 
-Ouvrir directement `index.html` dans un navigateur — aucun serveur ni dépendance externe requis.
-
-Pour le BEP, le flux recommandé est :
-1. Ouvrir `bep.html` avec le patient
-2. Remplir les sections en séance
-3. **Enregistrer (.json)** pour conserver le brouillon
-4. **Télécharger le PDF** pour l'impression ou la transmission
-
-## Évolutions prévues
-
-- Questionnaires d'auto-évaluation
-- Supports de séance numérisés
-
-## Contact
-
-**UTEP — CH Charles Perrens**
-RDC bâtiment 003 · 137b rue Léo Saignat · 33000 Bordeaux
-[utep@ch-perrens.fr](mailto:utep@ch-perrens.fr) · 05.56.56.35.13
-Lun–Ven 8h45–16h30
+Ouvrir `index.html` directement dans un navigateur — aucun serveur ni dépendance externe requis.
