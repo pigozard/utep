@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>UTEP — CH Charles Perrens</title>
+<style>
+  :root{
+    --teal:#2BABB3;
+    --teal-fonce:#1d8990;
+    --orange:#E8704A;
+    --encre:#1f2933;
+    --gris:#5c6b73;
+    --fond:#f4f8f9;
+    --carte:#ffffff;
+    --bord:#e1ebec;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    background:var(--fond);color:var(--encre);line-height:1.55;
+  }
+  .nav{
+    background:var(--teal);color:#fff;padding:14px 24px;
+    display:flex;align-items:center;gap:14px;
+  }
+  .nav strong{font-size:16px;letter-spacing:.3px}
+  .nav span{font-size:13px;opacity:.9;margin-left:auto}
+  .hero{
+    background:linear-gradient(135deg,var(--teal) 0%,var(--teal-fonce) 100%);
+    color:#fff;padding:48px 24px 40px;text-align:center;
+  }
+  .hero h1{margin:0 0 12px;font-size:30px;font-weight:800}
+  .hero p{margin:0 auto;max-width:620px;font-size:16px;opacity:.95}
+  .stats{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:22px}
+  .pill{
+    background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.35);
+    border-radius:999px;padding:8px 18px;font-size:14px;font-weight:600;
+  }
+  .wrap{max-width:920px;margin:0 auto;padding:32px 24px 60px}
+  .label{
+    color:var(--orange);font-weight:700;font-size:13px;letter-spacing:1px;
+    text-transform:uppercase;margin:30px 0 12px;
+  }
+  .carte{background:var(--carte);border:1px solid var(--bord);border-radius:16px;padding:22px 24px;margin-bottom:16px}
+  .contact{display:grid;grid-template-columns:1fr 1fr;gap:10px 24px;font-size:14px;color:var(--gris)}
+  .contact a{color:var(--teal-fonce);text-decoration:none}
+  .contact a:hover{text-decoration:underline}
+  .outils{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .outil{
+    background:var(--carte);border:1px solid var(--bord);border-left:4px solid var(--orange);
+    border-radius:14px;padding:22px;display:flex;flex-direction:column;
+  }
+  .outil h3{margin:0 0 6px;font-size:17px}
+  .outil p{margin:0 0 18px;font-size:14px;color:var(--gris);flex:1}
+  .btn{
+    align-self:flex-start;background:var(--orange);color:#fff;border:0;border-radius:999px;
+    padding:11px 24px;font-size:15px;font-weight:700;text-decoration:none;cursor:pointer;
+    transition:filter .12s,transform .08s;
+  }
+  .btn:hover{filter:brightness(1.06)}
+  .btn:active{transform:translateY(1px)}
+  .btn.gris{background:#fff;color:var(--gris);border:1.5px solid var(--bord)}
+  .pied{text-align:center;color:var(--gris);font-size:13px;padding:24px;border-top:1px solid var(--bord)}
+  @media(max-width:640px){.contact,.outils{grid-template-columns:1fr}.hero h1{font-size:24px}}
+</style>
+</head>
+<body>
+
+<div class="nav">
+  <strong>UTEP</strong>
+  <span>CH Charles Perrens — Bordeaux</span>
+</div>
+
+<div class="hero">
+  <h1>Unité Transversale d'Éducation du Patient</h1>
+  <p>Une offre d'éducation thérapeutique pour les personnes vivant avec une pathologie psychiatrique chronique, leurs proches et les professionnels de santé.</p>
+  <div class="stats">
+    <span class="pill">12 programmes d'ETP</span>
+    <span class="pill">747 patients/an</span>
+    <span class="pill">Depuis 2017</span>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <p class="label">Nous contacter</p>
+  <div class="carte">
+    <div class="contact">
+      <div>📍 RDC bâtiment 003 — 137b rue Léo Saignat, 33000 Bordeaux</div>
+      <div>🕒 Lun–Ven 8h45–16h30</div>
+      <div>📞 <a href="tel:0556563513">05.56.56.35.13</a></div>
+      <div>✉️ <a href="mailto:utep@ch-perrens.fr">utep@ch-perrens.fr</a></div>
+    </div>
+  </div>
+
+  <p class="label">Outils</p>
+  <div class="outils">
+    <div class="outil">
+      <h3>Bilan éducatif partagé</h3>
+      <p>Diagnostic éducatif à remplir en séance, en présentiel ou en visio. Aucune donnée n'est envoyée sur Internet : tout reste sur votre poste, export PDF en local.</p>
+      <a class="btn" href="bep.html">Ouvrir le BEP</a>
+    </div>
+    <div class="outil">
+      <h3>À venir</h3>
+      <p>D'autres outils éducatifs numérisés seront ajoutés ici (questionnaires, supports de séance…).</p>
+      <button class="btn gris" disabled style="opacity:.6;cursor:default">Bientôt</button>
+    </div>
+  </div>
+
+</div>
+
+<div class="pied">UTEP — Centre Hospitalier Charles Perrens · Outils éducatifs internes</div>
+
+</body>
+</html>
