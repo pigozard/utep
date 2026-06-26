@@ -1,129 +1,223 @@
 /* ============================================================
    UTEP — CH Charles Perrens
-   Feuille de style principale (index.html)
+   Warm Clinical — Glassmorphism premium
    ============================================================ */
 
 :root {
-  --bg:             #FAFAF8;
-  --card-bg:        #FFFFFF;
-  --accent:         #4A7C7E;
-  --accent-light:   #E6F0F0;
-  --text-primary:   #2C2C2A;
-  --text-secondary: #6B6B66;
-  --border:         #E2E0D8;
+  --bleu:        #4A6FA5;
+  --bleu-clair:  #E8EEF7;
+  --terra:       #C17A5A;
+  --marine:      #2D3748;
+  --gris:        #6B7280;
+  --blanc-verre: rgba(255, 255, 255, 0.62);
+  --bord-verre:  rgba(255, 255, 255, 0.55);
 }
 
 *, *::before, *::after { box-sizing: border-box; }
 
+html { height: 100%; }
+
 body {
   margin: 0;
+  min-height: 100%;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  background: var(--bg);
-  color: var(--text-primary);
+  color: var(--marine);
   line-height: 1.6;
+
+  /* Fond dégradé avec orbes colorés flottants */
+  background:
+    radial-gradient(ellipse 70% 55% at 85% 10%,  rgba(193, 122,  90, .22) 0%, transparent 65%),
+    radial-gradient(ellipse 55% 65% at 10% 85%,  rgba( 74, 111, 165, .20) 0%, transparent 65%),
+    radial-gradient(ellipse 45% 45% at 50% 55%,  rgba(232, 238, 247, .70) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 40% at 20% 15%,  rgba(253, 248, 243, .90) 0%, transparent 70%),
+    linear-gradient(155deg, #FDF8F3 0%, #EEF3FA 55%, #FAF0EB 100%);
+  background-attachment: fixed;
 }
 
 /* ── Conteneur ── */
 .container {
-  max-width: 900px;
+  max-width: 920px;
   margin: 0 auto;
-  padding: 3rem 1.5rem 4rem;
+  padding: 4rem 1.5rem 6rem;
 }
 
 /* ── En-tête ── */
 header {
   text-align: center;
-  margin-bottom: 2.5rem;
+  margin-bottom: 3.5rem;
 }
 
 header p.eyebrow {
-  font-size: 0.85rem;
-  color: var(--text-secondary);
-  margin: 0 0 0.5rem;
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: var(--terra);
+  margin: 0 0 1rem;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.18em;
+  background: rgba(193, 122, 90, .1);
+  padding: 5px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(193, 122, 90, .25);
 }
 
 header h1 {
-  font-size: 1.75rem;
-  font-weight: 600;
-  margin: 0 0 0.75rem;
+  font-size: 2.6rem;
+  font-weight: 800;
+  margin: 0 0 1.1rem;
+  color: var(--marine);
+  letter-spacing: -.03em;
+  line-height: 1.15;
 }
 
 header p.intro {
-  font-size: 1rem;
-  color: var(--text-secondary);
-  max-width: 480px;
+  font-size: 1.05rem;
+  color: var(--gris);
+  max-width: 440px;
   margin: 0 auto;
+  line-height: 1.7;
 }
 
 /* ── Grille de cartes ── */
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.1rem;
 }
 
+/* ── Carte glassmorphism ── */
 .card {
-  background: var(--card-bg);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 1.5rem 1.25rem;
+  background: var(--blanc-verre);
+  backdrop-filter: blur(22px);
+  -webkit-backdrop-filter: blur(22px);
+  border: 1px solid var(--bord-verre);
+  border-radius: 18px;
+  padding: 1.6rem 1.4rem;
   text-decoration: none;
   color: inherit;
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
-  transition: border-color 0.15s ease, transform 0.15s ease;
+  gap: 0.45rem;
+  position: relative;
+  overflow: hidden;
+
+  box-shadow:
+    0 4px 24px rgba(45, 55, 72, .07),
+    0 1px 0px rgba(255,255,255,.9) inset;
+
+  transition:
+    transform 0.22s cubic-bezier(.34,1.56,.64,1),
+    box-shadow 0.22s ease,
+    border-color 0.2s ease;
+}
+
+/* Reflet lumineux en haut à gauche */
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,.9) 40%, transparent 100%);
+  border-radius: 18px 18px 0 0;
 }
 
 .card:hover {
-  border-color: var(--accent);
-  transform: translateY(-2px);
+  transform: translateY(-5px) scale(1.01);
+  border-color: rgba(74, 111, 165, .4);
+  box-shadow:
+    0 16px 40px rgba(74, 111, 165, .15),
+    0 4px 12px rgba(45, 55, 72, .08),
+    0 1px 0px rgba(255,255,255,.9) inset;
 }
 
+/* Icône */
 .card .icon {
-  width: 40px;
-  height: 40px;
-  border-radius: 10px;
-  background: var(--accent-light);
-  color: var(--accent);
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, var(--bleu-clair) 0%, rgba(255,255,255,.8) 100%);
+  color: var(--bleu);
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 1.25rem;
-  margin-bottom: 0.25rem;
+  margin-bottom: 0.4rem;
+  border: 1px solid rgba(74, 111, 165, .15);
+  transition: background 0.2s, color 0.2s, transform 0.2s;
+  box-shadow: 0 2px 8px rgba(74, 111, 165, .12);
+}
+
+.card:hover .icon {
+  background: linear-gradient(135deg, var(--bleu) 0%, #3a5a8a 100%);
+  color: #fff;
+  transform: scale(1.08);
+  box-shadow: 0 4px 14px rgba(74, 111, 165, .35);
 }
 
 .card h2 {
   font-size: 1rem;
-  font-weight: 600;
+  font-weight: 700;
   margin: 0;
+  color: var(--marine);
+  letter-spacing: -.01em;
 }
 
 .card p {
-  font-size: 0.875rem;
-  color: var(--text-secondary);
+  font-size: 0.85rem;
+  color: var(--gris);
   margin: 0;
+  line-height: 1.5;
+}
+
+/* Petite flèche discrète au hover */
+.card::after {
+  content: '→';
+  position: absolute;
+  bottom: 1.2rem;
+  right: 1.2rem;
+  font-size: 0.85rem;
+  color: var(--bleu);
+  opacity: 0;
+  transform: translateX(-6px);
+  transition: opacity 0.2s, transform 0.2s;
+}
+.card:hover::after {
+  opacity: 1;
+  transform: translateX(0);
 }
 
 /* ── Pied de page ── */
 footer {
   text-align: center;
-  margin-top: 3rem;
+  margin-top: 4rem;
   padding-top: 1.5rem;
-  border-top: 1px solid var(--border);
+  border-top: 1px solid rgba(255,255,255,.5);
 }
 
 footer p {
-  font-size: 0.8rem;
-  color: var(--text-secondary);
+  font-size: 0.78rem;
+  color: var(--gris);
   margin: 0;
+  letter-spacing: .02em;
+  opacity: .7;
 }
 
 /* ── Carte désactivée ── */
 .card.disabled {
-  opacity: 0.45;
+  opacity: 0.38;
   cursor: default;
   pointer-events: none;
+}
+.card.disabled::after { display: none; }
+
+/* ── Responsive ── */
+@media (max-width: 600px) {
+  .container { padding: 2.5rem 1rem 4rem; }
+  header h1  { font-size: 2rem; }
+  .grid      { grid-template-columns: 1fr 1fr; gap: 0.8rem; }
+  .card      { padding: 1.2rem 1rem; border-radius: 14px; }
+}
+
+@media (max-width: 400px) {
+  .grid { grid-template-columns: 1fr; }
 }

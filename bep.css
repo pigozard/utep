@@ -1,81 +1,107 @@
 /* ============================================================
    UTEP — CH Charles Perrens
-   Bilan Éducatif Partagé (bep.html)
+   Bilan Éducatif Partagé — couleurs d'origine + glassmorphism
    ============================================================ */
 
 :root {
   --lavande:       #eeecf8;
-  --lavande-clair: #FAFAF8;
   --violet:        #5b3a8c;
   --violet-vif:    #7b46c9;
   --encre:         #1d1b2e;
   --gris:          #6a6880;
-  --carte:         #ffffff;
   --bord:          #d8d9ef;
   --bleu:          #2f5fd0;
-  --rayon:         18px;
+  --rayon:         16px;
+  --blanc-verre:   rgba(255, 255, 255, 0.62);
+  --bord-verre:    rgba(255, 255, 255, 0.55);
 }
 
 /* ── Reset ── */
 *, *::before, *::after { box-sizing: border-box; }
 
+html { height: 100%; }
+
 body {
   margin: 0;
+  min-height: 100%;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  background: var(--lavande-clair);
   color: var(--encre);
-  line-height: 1.45;
+  line-height: 1.5;
+
+  /* Orbes violet / lavande flottants */
+  background:
+    radial-gradient(ellipse 65% 55% at 88% 8%,  rgba(123, 70, 201, .18) 0%, transparent 65%),
+    radial-gradient(ellipse 50% 60% at 8%  88%,  rgba( 91, 58, 140, .15) 0%, transparent 65%),
+    radial-gradient(ellipse 45% 45% at 50% 52%,  rgba(238, 236, 248, .75) 0%, transparent 60%),
+    radial-gradient(ellipse 55% 40% at 22% 12%,  rgba(250, 250, 248, .90) 0%, transparent 70%),
+    linear-gradient(155deg, #FAFAF8 0%, #EEEcF8 55%, #F8F5FF 100%);
+  background-attachment: fixed;
 }
 
-/* ── Barre d'actions (sticky) ── */
+/* ── Barre d'actions (sticky, glass) ── */
 .barre {
   position: sticky;
   top: 0;
   z-index: 50;
-  background: #fff;
-  border-bottom: 1px solid var(--bord);
-  padding: 12px 20px;
+  background: rgba(250, 250, 248, 0.80);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(216, 217, 239, .5);
+  padding: 12px 24px;
   display: flex;
   gap: 10px;
   align-items: center;
   flex-wrap: wrap;
 }
-.barre h1 {
-  font-size: 15px;
-  margin: 0;
-  font-weight: 700;
+
+.barre a {
+  text-decoration: none;
   color: var(--violet);
-  flex: 1;
-  min-width: 160px;
+  font-size: 14px;
+  font-weight: 600;
+  opacity: .8;
+  transition: opacity .15s;
 }
+.barre a:hover { opacity: 1; }
 
 /* ── Boutons ── */
 .bouton {
   border: 0;
   border-radius: 999px;
-  padding: 10px 18px;
-  font-size: 14px;
+  padding: 9px 20px;
+  font-size: 13.5px;
   font-weight: 600;
   cursor: pointer;
   font-family: inherit;
-  transition: transform .08s, filter .15s;
+  transition: transform .08s, box-shadow .15s, filter .15s;
 }
 .bouton:active { transform: translateY(1px); }
-.bouton:hover  { filter: brightness(1.05); }
 
-.b-pdf    { background: var(--violet-vif); color: #fff; }
-.b-json   { background: #fff; color: var(--violet); border: 1.5px solid var(--violet); }
-.b-import { background: #fff; color: var(--gris);   border: 1.5px solid var(--bord); }
-.b-reset  { background: #fff; color: var(--gris);   border: 1.5px solid var(--bord); margin-left: auto; }
+.b-pdf {
+  background: var(--violet-vif);
+  color: #fff;
+  box-shadow: 0 2px 10px rgba(123, 70, 201, .35);
+}
+.b-pdf:hover { filter: brightness(1.1); box-shadow: 0 4px 16px rgba(123, 70, 201, .45); }
+
+.b-reset {
+  background: var(--blanc-verre);
+  color: var(--gris);
+  border: 1.5px solid var(--bord-verre);
+  margin-left: auto;
+  backdrop-filter: blur(8px);
+}
+.b-reset:hover { border-color: var(--violet); color: var(--violet); }
 
 /* ── Avis confidentialité ── */
 .avis {
   max-width: 860px;
-  margin: 14px auto 0;
+  margin: 16px auto 0;
   padding: 10px 16px;
-  border-radius: 12px;
-  background: #fff6e0;
-  border: 1px solid #f0d27a;
+  border-radius: 10px;
+  background: rgba(255, 246, 224, .75);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(240, 210, 122, .5);
   color: #7a5a00;
   font-size: 13px;
 }
@@ -83,92 +109,153 @@ body {
 /* ── Feuille principale ── */
 .feuille {
   max-width: 860px;
-  margin: 18px auto;
-  background: var(--lavande);
-  border-radius: 24px;
-  padding: 26px;
+  margin: 20px auto 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 0 12px;
 }
 
 .titre {
   text-align: center;
-  font-size: 30px;
+  font-size: 28px;
   font-weight: 800;
   color: var(--encre);
   letter-spacing: .5px;
-  margin: 4px 0 22px;
+  margin: 4px 0 8px;
+}
+.titre::after {
+  content: '';
+  display: block;
+  width: 44px;
+  height: 3px;
+  background: var(--violet-vif);
+  border-radius: 99px;
+  margin: 8px auto 0;
 }
 
 /* ── Frise chronologique ── */
 .frise-tete {
   display: flex;
   align-items: center;
-  gap: 18px;
-  margin-bottom: 14px;
+  gap: 16px;
+  margin-bottom: 12px;
 }
 .frise-tag {
-  background: #fff;
+  background: rgba(238, 236, 248, .85);
   color: var(--violet);
   font-weight: 800;
-  font-size: 22px;
-  padding: 10px 18px;
-  border-radius: 6px;
+  font-size: 18px;
+  padding: 8px 16px;
+  border-radius: 8px;
   white-space: nowrap;
+  border: 1.5px solid rgba(216, 217, 239, .6);
 }
-.frise-cons { font-size: 14px; color: #33324a; }
+.frise-cons { font-size: 13px; color: var(--gris); line-height: 1.5; }
 
-/* ── Carte ── */
+/* ── Carte (glassmorphism) ── */
 .carte {
-  background: var(--carte);
+  background: var(--blanc-verre);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--bord-verre);
   border-radius: var(--rayon);
-  padding: 18px 20px;
-  margin-bottom: 16px;
+  padding: 20px 24px;
   position: relative;
+  overflow: hidden;
+  box-shadow:
+    0 4px 20px rgba(91, 58, 140, .07),
+    0 1px 0 rgba(255,255,255,.9) inset;
+  transition: box-shadow .2s, transform .2s;
 }
+.carte::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,.9) 40%, transparent 100%);
+}
+
 .carte.centre { text-align: center; }
+
 .carte h2 {
   margin: 0 0 4px;
-  font-size: 16px;
-  font-weight: 800;
-  letter-spacing: .4px;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: .3px;
+  color: var(--encre);
 }
-.carte .indice { margin: 0 0 10px; font-size: 13px; color: var(--gris); }
-.ico { position: absolute; top: 16px; right: 18px; font-size: 26px; opacity: .85; }
+.carte .indice {
+  margin: 0 0 12px;
+  font-size: 13px;
+  color: var(--gris);
+}
+
+.ico {
+  position: absolute;
+  top: 16px;
+  right: 20px;
+  font-size: 24px;
+  opacity: .65;
+}
 
 /* ── Champs de saisie ── */
 textarea {
   width: 100%;
-  border: 1px solid var(--bord);
+  border: 1.5px solid rgba(216, 217, 239, .7);
   border-radius: 10px;
-  padding: 10px 12px;
+  padding: 10px 14px;
   font-family: inherit;
   font-size: 14px;
   resize: vertical;
-  background: #fbfbff;
+  background: rgba(255, 255, 255, .55);
   color: var(--encre);
+  transition: border-color .15s, box-shadow .15s, background .15s;
 }
-textarea:focus { outline: 2px solid var(--violet-vif); border-color: transparent; }
+textarea:focus {
+  outline: none;
+  border-color: var(--violet-vif);
+  box-shadow: 0 0 0 3px rgba(123, 70, 201, .12);
+  background: rgba(255, 255, 255, .85);
+}
+textarea::placeholder { color: #b0aec8; }
 
-.frise textarea { min-height: 64px; }
-.grand  textarea { min-height: 120px; }
-.moyen  textarea { min-height: 90px; }
+.frise textarea { min-height: 60px; }
+.grand  textarea { min-height: 110px; }
+.moyen  textarea { min-height: 86px; }
 
 /* ── Grilles ── */
 .duo {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 16px;
+  gap: 14px;
 }
 
 /* ── Étiquette ── */
-.etiquette label { display: block; font-size: 13px; color: var(--gris); margin-bottom: 4px; }
+.etiquette label {
+  display: block;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--gris);
+  text-transform: uppercase;
+  letter-spacing: .05em;
+  margin-bottom: 5px;
+}
 .etiquette input[type=text] {
   width: 100%;
-  border: 1px solid var(--bord);
+  border: 1.5px solid rgba(216, 217, 239, .7);
   border-radius: 8px;
-  padding: 9px 11px;
+  padding: 9px 12px;
   font-family: inherit;
   font-size: 14px;
-  background: #fbfbff;
+  background: rgba(255, 255, 255, .55);
+  color: var(--encre);
+  transition: border-color .15s, box-shadow .15s;
+}
+.etiquette input[type=text]:focus {
+  outline: none;
+  border-color: var(--violet-vif);
+  box-shadow: 0 0 0 3px rgba(123, 70, 201, .12);
 }
 
 /* ── Bloc ETP ── */
@@ -177,23 +264,36 @@ textarea:focus { outline: 2px solid var(--violet-vif); border-color: transparent
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 14px;
+  gap: 16px;
+  background: rgba(238, 236, 248, .5);
+  border-color: rgba(216, 217, 239, .5);
 }
-.etp p { margin: 0; text-align: center; font-size: 15px; }
+.etp p {
+  margin: 0;
+  text-align: center;
+  font-size: 15px;
+  font-weight: 500;
+}
 
-.choix { display: flex; gap: 14px; }
+.choix { display: flex; gap: 12px; }
 .pastille {
   border: 2px solid var(--bleu);
-  background: #fff;
+  background: rgba(255, 255, 255, .6);
   color: var(--bleu);
   border-radius: 999px;
-  padding: 10px 30px;
+  padding: 9px 28px;
   font-weight: 700;
-  font-size: 15px;
+  font-size: 14px;
   cursor: pointer;
-  transition: all .12s;
+  transition: all .15s;
+  backdrop-filter: blur(8px);
 }
-.pastille.on { background: var(--bleu); color: #fff; }
+.pastille:hover { background: rgba(47, 95, 208, .08); }
+.pastille.on {
+  background: var(--bleu);
+  color: #fff;
+  box-shadow: 0 2px 10px rgba(47, 95, 208, .35);
+}
 
 /* ── Mode PDF ── */
 .pdf-mode textarea { border-color: #ccc; }
@@ -204,17 +304,30 @@ textarea:focus { outline: 2px solid var(--violet-vif); border-color: transparent
 
   .barre,
   .avis       { display: none !important; }
-  body        { background: #fff !important; }
+
+  body {
+    background: #FAFAF8 !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
 
   .feuille {
     max-width: 100% !important;
     width: 100% !important;
     margin: 0 !important;
     padding: 0 !important;
-    background: #fff !important;
+    gap: 10px !important;
   }
-  .carte  { box-shadow: none !important; border: 1px solid #d8d9ef; break-inside: avoid; }
-  .duo    { break-inside: avoid; }
+
+  .carte {
+    background: #fff !important;
+    backdrop-filter: none !important;
+    box-shadow: none !important;
+    border: 1px solid #d8d9ef !important;
+    break-inside: avoid;
+  }
+  .carte::before { display: none; }
+  .duo { break-inside: avoid; }
 
   textarea,
   .impression-bloc {
@@ -233,7 +346,9 @@ textarea:focus { outline: 2px solid var(--violet-vif); border-color: transparent
 
 /* ── Responsive ── */
 @media (max-width: 640px) {
-  .duo      { grid-template-columns: 1fr; }
-  .titre    { font-size: 23px; }
-  .frise-tag { font-size: 18px; }
+  .duo        { grid-template-columns: 1fr; }
+  .titre      { font-size: 22px; }
+  .frise-tag  { font-size: 15px; }
+  .feuille    { margin: 14px auto 28px; }
+  .barre      { padding: 10px 14px; }
 }
