@@ -1,40 +1,6 @@
 /* ── Roue des émotions ── */
 .roue-page { max-width: 680px; }
 
-.barre-nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 2.5rem;
-}
-
-.retour {
-  text-decoration: none;
-  color: var(--gris);
-  font-size: 0.88rem;
-  font-weight: 600;
-  transition: color 0.15s;
-}
-.retour:hover { color: var(--marine); }
-
-.btn-roue-reset {
-  background: var(--blanc-verre);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid var(--bord-verre);
-  border-radius: 999px;
-  padding: 6px 18px;
-  font-size: 0.82rem;
-  font-weight: 600;
-  color: var(--gris);
-  cursor: pointer;
-  transition: color 0.15s, border-color 0.15s;
-}
-.btn-roue-reset:hover {
-  color: var(--marine);
-  border-color: rgba(74,111,165,.4);
-}
-
 /* ── SVG wrapper ── */
 .roue-wrapper {
   display: flex;

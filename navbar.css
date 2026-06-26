@@ -1,0 +1,94 @@
+/* ── Navbar UTEP — partagée sur toutes les pages ── */
+
+.site-nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1.5rem;
+  height: 56px;
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.55);
+  box-shadow: 0 1px 12px rgba(45, 55, 72, .07);
+}
+
+.nav-logo {
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #C17A5A;
+  text-decoration: none;
+  background: rgba(193, 122, 90, .10);
+  border: 1px solid rgba(193, 122, 90, .25);
+  border-radius: 999px;
+  padding: 5px 14px;
+  transition: background 0.15s, border-color 0.15s;
+}
+.nav-logo:hover {
+  background: rgba(193, 122, 90, .18);
+  border-color: rgba(193, 122, 90, .45);
+}
+
+.nav-back {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.84rem;
+  font-weight: 600;
+  color: #6B7280;
+  text-decoration: none;
+  padding: 6px 12px;
+  border-radius: 10px;
+  transition: background 0.15s, color 0.15s;
+}
+.nav-back:hover {
+  background: rgba(45, 55, 72, .07);
+  color: #2D3748;
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Boutons d'action dans la navbar */
+.nav-btn {
+  background: rgba(255, 255, 255, 0.62);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  border-radius: 999px;
+  padding: 6px 16px;
+  font-size: 0.80rem;
+  font-weight: 600;
+  color: #6B7280;
+  cursor: pointer;
+  font-family: inherit;
+  transition: color 0.15s, border-color 0.15s, background 0.15s;
+}
+.nav-btn:hover {
+  color: #2D3748;
+  border-color: rgba(74, 111, 165, .35);
+  background: rgba(255, 255, 255, 0.85);
+}
+.nav-btn.primary {
+  background: #4A6FA5;
+  color: #fff;
+  border-color: #4A6FA5;
+}
+.nav-btn.primary:hover {
+  background: #3a5a8a;
+  border-color: #3a5a8a;
+  color: #fff;
+}
+
+@media (max-width: 500px) {
+  .site-nav { padding: 0 1rem; }
+  .nav-btn  { padding: 5px 10px; font-size: 0.75rem; }
+}

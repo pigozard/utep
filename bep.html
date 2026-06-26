@@ -5,16 +5,18 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mon bilan éducatif — UTEP</title>
 <link rel="stylesheet" href="bep.css">
+  <link rel="stylesheet" href="navbar.css">
 </head>
 <body>
 
-<div class="barre">
-  <a href="index.html" style="text-decoration:none;color:var(--gris);font-size:14px;font-weight:600">← Accueil</a>
-
-  <input type="file" id="fichier" accept="application/json" style="display:none" onchange="importer(event)">
-  <button class="bouton b-reset" onclick="reinitialiser()">↺ Effacer</button>
-  <button class="bouton b-pdf"  onclick="exportPDF()">Télécharger le PDF</button>
-</div>
+<nav class="site-nav">
+  <a href="index.html" class="nav-back">← Accueil</a>
+  <div class="nav-actions">
+    <input type="file" id="fichier" accept="application/json" style="display:none" onchange="importer(event)">
+    <button class="nav-btn" onclick="reinitialiser()">↺ Effacer</button>
+    <button class="nav-btn primary" onclick="exportPDF()">Télécharger le PDF</button>
+  </div>
+</nav>
 
 <div class="avis">
   Les réponses restent dans votre navigateur : rien n'est envoyé sur Internet. Enregistrez le fichier sur votre poste, puis transmettez-le par messagerie sécurisée de santé.
