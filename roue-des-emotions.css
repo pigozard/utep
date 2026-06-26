@@ -1,0 +1,118 @@
+/* ── Roue des émotions ── */
+.roue-page { max-width: 680px; }
+
+.barre-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2.5rem;
+}
+
+.retour {
+  text-decoration: none;
+  color: var(--gris);
+  font-size: 0.88rem;
+  font-weight: 600;
+  transition: color 0.15s;
+}
+.retour:hover { color: var(--marine); }
+
+.btn-roue-reset {
+  background: var(--blanc-verre);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--bord-verre);
+  border-radius: 999px;
+  padding: 6px 18px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--gris);
+  cursor: pointer;
+  transition: color 0.15s, border-color 0.15s;
+}
+.btn-roue-reset:hover {
+  color: var(--marine);
+  border-color: rgba(74,111,165,.4);
+}
+
+/* ── SVG wrapper ── */
+.roue-wrapper {
+  display: flex;
+  justify-content: center;
+  margin: 1.5rem 0 2rem;
+}
+
+#roue {
+  width: 100%;
+  max-width: 520px;
+  cursor: grab;
+  filter: drop-shadow(0 8px 32px rgba(45,55,72,.18));
+  touch-action: none;
+  user-select: none;
+}
+#roue:active { cursor: grabbing; }
+
+.ring {
+  transition: transform 0.28s cubic-bezier(.34,1.56,.64,1);
+}
+.ring.dragging { transition: none; }
+
+/* ── Controls ── */
+.controles {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  max-width: 420px;
+  margin: 0 auto;
+}
+
+.controle-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--blanc-verre);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--bord-verre);
+  border-radius: 14px;
+  padding: 0.7rem 1rem;
+  box-shadow: 0 2px 12px rgba(45,55,72,.06), 0 1px 0 rgba(255,255,255,.9) inset;
+}
+
+.controle-label {
+  font-size: 0.86rem;
+  font-weight: 600;
+  color: var(--marine);
+}
+
+.controle-btns { display: flex; gap: 0.45rem; }
+
+.btn-step {
+  width: 34px;
+  height: 34px;
+  border-radius: 9px;
+  border: 1px solid rgba(74,111,165,.25);
+  background: linear-gradient(135deg, var(--bleu-clair) 0%, rgba(255,255,255,.8) 100%);
+  color: var(--bleu);
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.18s, color 0.18s, box-shadow 0.18s, transform 0.1s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+.btn-step:hover {
+  background: linear-gradient(135deg, var(--bleu) 0%, #3a5a8a 100%);
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(74,111,165,.3);
+}
+.btn-step:active { transform: scale(0.9); }
+
+/* ── Responsive ── */
+@media (max-width: 600px) {
+  .controles { max-width: 100%; }
+  .controle-label { font-size: 0.80rem; }
+  .btn-step { width: 30px; height: 30px; font-size: 0.9rem; }
+}

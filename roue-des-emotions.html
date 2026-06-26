@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Roue des émotions — UTEP</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="roue-des-emotions.css">
+</head>
+<body>
+  <div class="container roue-page">
+
+    <div class="barre-nav">
+      <a href="index.html" class="retour">← Accueil</a>
+      <button id="btn-reset" class="btn-roue-reset">↺ Réinitialiser</button>
+    </div>
+
+    <header>
+      <p class="eyebrow">UTEP</p>
+      <h1>Roue des émotions</h1>
+      <p class="intro">Faites tourner les disques pour identifier l'émotion, les nuances et le besoin associé.</p>
+    </header>
+
+    <div class="roue-wrapper">
+      <svg id="roue" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
+        <!-- Built by roue-des-emotions.js -->
+      </svg>
+    </div>
+
+    <div class="controles">
+      <div class="controle-row">
+        <span class="controle-label">Émotions primaires</span>
+        <div class="controle-btns">
+          <button class="btn-step" data-ring="0" data-dir="-1">←</button>
+          <button class="btn-step" data-ring="0" data-dir="1">→</button>
+        </div>
+      </div>
+      <div class="controle-row">
+        <span class="controle-label">Nuances</span>
+        <div class="controle-btns">
+          <button class="btn-step" data-ring="1" data-dir="-1">←</button>
+          <button class="btn-step" data-ring="1" data-dir="1">→</button>
+        </div>
+      </div>
+      <div class="controle-row">
+        <span class="controle-label">Besoins</span>
+        <div class="controle-btns">
+          <button class="btn-step" data-ring="2" data-dir="-1">←</button>
+          <button class="btn-step" data-ring="2" data-dir="1">→</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <script src="roue-des-emotions.js"></script>
+</body>
+</html>
