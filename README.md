@@ -1,6 +1,6 @@
 # UTEP — Outils et ressources
 
-Outils web internes de l'**Unité Transversale d'Éducation du Patient**  
+Outils web internes de l'**Unité Transversale d'Éducation du Patient**
 Centre Hospitalier Charles Perrens — Bordeaux
 
 ---
@@ -48,3 +48,6 @@ Formulaire de diagnostic éducatif rempli en séance (présentiel ou visio).
 ## Utilisation
 
 Ouvrir `index.html` directement dans un navigateur — aucun serveur ni dépendance externe requis.
+
+
+Pour la roue des émotions, voir comment fonctionne https://feelingswheel.app
